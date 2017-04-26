@@ -1,2 +1,5 @@
 node_modules
 bower_components
+chrome-store-assets/
+chrome-extension/node_modules
+chrome-extension/build

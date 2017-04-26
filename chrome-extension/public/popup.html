@@ -1,0 +1,139 @@
+<!doctype html>
+<!--
+ This page is shown when the extension button is clicked, because the
+ "browser_action" field in manifest.json contains the "default_popup" key with
+ value "popup.html".
+ -->
+<html>
+  <head>
+    <title>Getting Started Extension's Popup</title>
+    <style>
+      body {
+        font-family: "Helvetica", "Lucida Grande", Tahoma, sans-serif;
+        font-size: 1em;
+        width: 500px;
+        background-color: #E9EBEE;
+      }
+      #status {
+        /* avoid an excessively wide status text */
+        white-space: pre;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        max-width: 400px;
+      }
+
+      #header-image {
+        background-image: url(raccoon-logo-lg.png);
+        background-repeat: no-repeat;
+        background-position: left;
+      }
+
+      .container {
+        background-color: white;
+        box-shadow: 0px 1px 1px lightgrey;
+        padding: 1em;
+        margin-bottom: 1em;
+      }
+
+      li {
+        padding: 0.3em;
+        margin: 0.3em;
+      }
+
+      li p {
+        display: inline-block;
+        margin: 0;
+      }
+
+      .tag {
+        display: inline-block;
+        padding: 0.3em;
+        border-radius: 2px;
+        margin-left: 1em;
+        text-shadow: 0px -1px 0px grey;
+        color: white;
+      }
+
+      .current {
+        background-color: #89BE4C;
+      }
+
+      .proposed {
+        background-color: #F5C33B;
+      }
+
+      .upcoming {
+        background-color: #F8A058;
+      }
+
+      .release_tag{
+        display: inline-block
+      }
+
+      .footer {
+        background-color: #18243D;
+        color: #eee;
+        text-shadow: 0px -1px 0px black;
+      }
+
+      .link:visited{
+        color: white;
+      }
+
+
+    </style>
+
+    <!--
+      - JavaScript and HTML must be in separate files: see our Content Security
+      - Policy documentation[1] for details and explanation.
+      -
+      - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
+     -->
+    <script src="popup.js"></script>
+  </head>
+  <body>
+    <!-- <div id="status"></div> -->
+    <div class="container" id="header-image" style="background-color:black;color:white;">
+      <h3>Welcome to Switch Feed, a browser extension for facebook.</h3>
+    </div>
+    <div class="container">
+      <h3>What is Switch Feed?</h3>
+      <p>
+        This extension adds an anonymous posting board to your Facebook News Feed.
+        You will be able to see posts from anyone who has this extension regardless of
+        if they are in your Facebook friend network. The purpose of Switch Feed is to provide a
+        liberating, uncensored space to talk about things within Facebook.
+      </p>
+    </div>
+    <div class="container">
+      <h3>Toggling Switch Feed</h3>
+      <p>
+        The board can be toggled on and off by clicking the <b>switch feed</b> button at the top of your news feed.
+      </p>
+    </div>
+    <div class="container">
+      <h3>Beta</h3>
+      <p>
+        This is a <b>beta</b> version! Current features are limited to posting, commenting, and browsing the available boards.
+        Each board is currently limited to 25 active posts. New posts will bump old posts out. When this happens,
+        the old post is deleted forever.
+        A complete list of features is available bellow:
+      </p>
+      <ul>
+        <li ><p>Commenting</p><p class="current tag"> current </p></li>
+        <li ><p>Posting</p><p class="current tag"> current </p></li>
+        <li ><p>Board Topics</p><p class="current tag"> current </p></li>
+        <li ><p>Upvote / Downvote system</p><p class="upcoming tag"> upcoming </p></li>
+        <li ><p>Collective reputation</p><p class="proposed tag"> proposed </p></li>
+        <li ><p>hashtags</p><p class="proposed tag"> proposed </p></li>
+        <li ><p>image and video posting on certain boards</p><p class="proposed tag"> proposed </p></li>
+      </ul>
+    </div>
+    <div class="container footer">
+      <p>Development progress can be tracked on <a class="link" href="https://github.com/Switch-Feed">Github</a></p>
+      <p>Developed by Gentry Demchak</p>
+      <p>Send Questions + suggestions to deevolutionism@gmail.com</p>
+    </div>
+    <img id="image-result" hidden>
+  </body>
+</html>

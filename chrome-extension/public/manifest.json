@@ -1,0 +1,74 @@
+{
+  "manifest_version": 2,
+
+  "name": "Switch Feed",
+  "description": "This extension adds an anonymous posting board to your Facebook News Feed.",
+  "version": "2.2",
+  "author":"Gentry Demchak",
+  "homepage_url":"http://swtichfeed.net",
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "https://ajax.googleapis.com/",
+    "https://www.facebook.com/*",
+    "http://localhost:8000/*",
+    "https://gentrydemchak.com/portfolio",
+    "https://*/"
+  ],
+  "background":{
+    "scripts": ["jquery-3.1.1.min.js","background.js"],
+    "persistent": false
+  },
+  "browser_action": {
+    "default_icon": {"19":"icon-19.png","48":"icon-48.png"},
+    "default_popup": "popup.html",
+    "default_title": "Raccoon"
+  },
+  "content_scripts": [
+       {
+           "matches": [ "*://*.facebook.com/*", "*://*.facebookcorewwwi.onion/*" ],
+           "all_frames": true,
+           "exclude_globs":    [   "*://*.facebook.com/ai.php*",
+                                   "*://*.facebook.com/ajax/*",
+                                   "*://*.facebook.com/dialog/*",
+                                   "*://*.facebook.com/xti.php*",
+                                   "*://*.facebook.com/connect/*",
+                                   "*://developers.facebook.com/*",
+                                   "*://code.facebook.com/*",
+                                   "*://*.facebookcorewwwi.onion/ai.php*",
+                                   "*://*.facebookcorewwwi.onion/ajax/*",
+                                   "*://*.facebookcorewwwi.onion/dialog/*",
+                                   "*://*.facebookcorewwwi.onion/connect/*",
+                                   "*://*.facebookcorewwwi.onion/xti.php*",
+                                   "*://developers.facebookcorewwwi.onion/xti.php*",
+                                   "*://code.facebookcorewwwi.onion/xti.php*"
+                               ],
+           "exclude_matches":  [   "*://*.facebook.com/ai.php*",
+                                   "*://*.facebook.com/ajax/*",
+                                   "*://*.facebook.com/dialog/*",
+                                   "*://*.facebook.com/xti.php*",
+                                   "*://*.facebook.com/connect/*",
+                                   "*://developers.facebook.com/*",
+                                   "*://code.facebook.com/*",
+                                   "*://*.facebookcorewwwi.onion/ai.php*",
+                                   "*://*.facebookcorewwwi.onion/ajax/*",
+                                   "*://*.facebookcorewwwi.onion/dialog/*",
+                                   "*://*.facebookcorewwwi.onion/connect/*",
+                                   "*://*.facebookcorewwwi.onion/xti.php*",
+                                   "*://developers.facebookcorewwwi.onion/xti.php*",
+                                   "*://code.facebookcorewwwi.onion/xti.php*"
+                               ],
+           "js": ["jquery-3.1.1.min.js","/static/js/main.abf0baba.js"],
+           "css":["styles.css"]
+       }
+   ],
+   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+   "web_accessible_resources":[
+     "icon-40.png",
+     "icon-48.png",
+     "https://gentrydemchak.com/portfolio"
+   ],
+   "externally_connectable": {
+     "matches": ["https://gentrydemchak/*"]
+   }
+}
