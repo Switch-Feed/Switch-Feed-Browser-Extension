@@ -17,7 +17,7 @@ if (window.location.href == "https://www.facebook.com/"){
   //for facebook
 
   $('#contentArea').prepend('<div id="switchfeedapp"></div>');
-
+  $('#universalNav ul').append('<li id="toggle_switch-feed">Switch Feed</li>')
   var switchfeedapp = document.getElementById("switchfeedapp")
 
     $('#u_0_5').click(() => {

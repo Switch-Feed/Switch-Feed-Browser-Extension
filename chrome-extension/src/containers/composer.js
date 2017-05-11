@@ -47,8 +47,8 @@ const Composer = ({dispatch,selectedBoard}) => {
   return(
     <div>
       <div className="anon_composer">
-        <img src={icon} alt="profile"/>
-        <p>Welcome to Switch Feed!</p>
+        <p className="welcome">Welcome to Switch Feed! Compose your message here.</p>
+        <img className="anon_profile" src={icon} alt="profile"/>
         <span
           id="input"
           className="anon_input"
@@ -56,8 +56,10 @@ const Composer = ({dispatch,selectedBoard}) => {
           contentEditable="true"
         >
         </span>
+        <div className="composer_interactions">
         <p className="composer_input">This post will be completely anonymous. Speak your mind.</p>
         <button className="anon_button anon_postButton" id="postButton" type="button" onClick={()=>{handleSubmitPost()}}>Post</button>
+        </div>
       </div>
     </div>
   )

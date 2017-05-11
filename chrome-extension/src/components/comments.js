@@ -3,11 +3,38 @@ import React, { PropTypes, Component } from 'react'
 export default class Comments extends Component {
 
   handleTime(i) {
-    console.log(this.props.comments)
-    var timePosted = new Date(this.props.comments[i].date)
+    var timestring = ''
+    var d = new Date(this.props.comments[i].date)
     var current = new Date()
-    var elapsedTime = new Date(current - timePosted)
-    return 'Replied ' + elapsedTime.getHours() + ' hours ' + elapsedTime.getMinutes() + ' minutes ago.'
+    var diff = current - d;
+
+    if (diff >= 1000*60*60*24){
+      //older than a day?
+      var days = Math.floor(diff / (1000*60*60*24))
+      if(days <= 1){
+        timestring = `${days} day ago`
+      } else {
+        timestring = `${days} days ago`
+      }
+    } else if (diff < 1000*60*60*24 && diff >= 1000*60*60){
+      //older than a few hours, but less than a day?
+      var hours = Math.floor(diff / (1000*60*60))
+      if(hours <= 1){
+        timestring = `${hours} hour ago`
+      } else {
+        timestring = `${hours} hours ago`
+      }
+    } else if (diff < 1000*60*60){
+      //older than a few minutes, but less than an hour?
+      var minutes = Math.floor(diff / (1000*60))
+      if(minutes <= 1) {
+        timestring = `${minutes} minute ago`
+      } else {
+        timestring = `${minutes} minutes ago`
+      }
+    }
+
+    return timestring
   }
 
   render(){

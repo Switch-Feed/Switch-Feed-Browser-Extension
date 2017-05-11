@@ -50,7 +50,7 @@ class AsyncApp extends Component {
 
     return (
       <div>
-        <button className="anon_button toggle" onClick={this.handleToggle}>Toggle Switch Feed</button>
+        <button className="anon_button toggle" onClick={this.handleToggle}>Toggle Switch Feed ({posts.length} posts)</button>
         <div id="app">
 
         <div className="anon_container">

@@ -13,10 +13,20 @@ div {
 }
 
 .anon_composer {
+  position: relative;
   border: 2px solid black;
   padding: 10px 10px 10px 10px;
   margin-bottom: 10px;
   background-color: white;
+}
+
+.anon_composer .welcome {
+  border-bottom: 1px solid #90949c;
+}
+
+.anon_composer .anon_profile {
+  position: absolute;
+  top: 5em;
 }
 
 .anon_text {
@@ -35,7 +45,7 @@ div {
 .time {
   margin:0;
   display:inline-block;
-  color:lightgrey;
+  color:#90949c;
   margin-top:10px;
 }
 
@@ -47,21 +57,23 @@ div {
   margin-bottom: 10px;
   padding: 10px;
   background-color: white;
-  border: 2px solid black;
-  border-radius: 2px;
-  box-shadow: 1px 1px 1px 1px #CCC;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgba(0,0,0,0.75);
+  border-radius: 3px;
+  /*box-shadow: 1px 1px 1px 1px #CCC;*/
 }
 
 .anon_input[contenteditable=true] {
-  width: 100%;
-  margin: 10px 0px;
-  padding: 25px 0px;
-  border: 1px solid #e5e5e5;
-  border-radius: 2px;
+  margin: 0;
+  padding: 1em 0;
   display: block;
   min-height: 32px;
   font-size: 2em;
-  color: lightgrey;
+  color: #90949c;
+  width: inherit;
+  padding-left: 3em;
+  border: none;
 }
 
 [contenteditable=true]:empty:before {
@@ -100,7 +112,7 @@ div {
   display: block;
   min-height: 2em;
   font-size: 1em;
-  color: lightgrey;
+  color: #90949c;
 }
 
 .anon_comment_input:focus{
@@ -110,15 +122,20 @@ div {
 
 .composer_input {
   display:inline-block;
-  color:lightgrey;
+  color:#90949c;
   margin-top:10px;
 }
 
 
 .anon_input:focus {
   outline-width: 0;
-  padding: 1em 0;
+  /*padding-left: 1em 0;*/
   color: black;
+}
+
+.composer_interactions {
+  padding-top: 1em;
+  border-top: 1px solid #90949c;
 }
 
 .anon_button {
@@ -266,28 +283,24 @@ li:hover {
 }*/
 
 .politics {
-  /*background: -webkit-linear-gradient(left, rgba(30,87,153,1) 0%,rgba(244,132,132,1) 100%);*/
-  border: 2px solid #F36B7E;
+  border-color: rgba(243,107,126,0.75);
 }
 
 .random {
-  border: 2px solid #5D92FF;
+  border-color: rgba(93,146,255,0.75);
 }
 
 .qa {
-  border: 2px solid #F8A058;
+  border-color: rgba(248,160,88,0.75);
 }
 
 .test {
- border: 2px solid black;
+ border-color: rgba(0,0,0,0.75);
 }
 
 #app {
-  /*position: relative;*/
-  perspective: 800px;
-  transform-origin: top;
-  transform-style: preserve-3d;
-  transition: transform 1s
+  display: none;
+  transition: transform 1s;
 }
 
 #contentArea {
